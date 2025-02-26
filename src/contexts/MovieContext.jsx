@@ -1,10 +1,10 @@
-import {createContext, useState, useContext, useEffect} from "react"
+import { createContext, useState, useContext, useEffect } from "react"
 
 const MovieContext = createContext()
 
 export const useMovieContext = () => useContext(MovieContext)
 
-export const MovieProvider = ({children}) => {
+export const MovieProvider = ({ children }) => {
     const [favorites, setFavorites] = useState([])
 
     useEffect(() => {
@@ -24,7 +24,7 @@ export const MovieProvider = ({children}) => {
     const removeFromFavorites = (movieId) => {
         setFavorites(prev => prev.filter(movie => movie.id !== movieId))
     }
-    
+
     const isFavorite = (movieId) => {
         return favorites.some(movie => movie.id === movieId)
     }
